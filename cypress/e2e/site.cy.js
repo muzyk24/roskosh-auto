@@ -1,5 +1,5 @@
 /// <reference types = 'cypress' />
-import HeaderList from "../fixtures/Page Object/headerList.cy";
+import Cookies from "../fixtures/Page Object/cookies.cy";
 
 describe ("e2e site test subpages", () => {
 
@@ -11,7 +11,8 @@ describe ("e2e site test subpages", () => {
         });
 
         cy.visit('/');
-        cy.get('[class="btn btn-primary core_acceptCookies"]').click();
+        Cookies.acceptCookies();
+    
     });
 
     it('visit page check pages from Toppage despite Shop', () => {
@@ -39,11 +40,7 @@ describe ("e2e site test subpages", () => {
 
     afterEach(function(){
         cy.visit('/');
-    })
-
-
-
-
+    });
 
 
 })
