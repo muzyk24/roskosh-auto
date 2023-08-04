@@ -1,21 +1,18 @@
 import HeaderList from "../fixtures/Page Object/headerList.cy"
+import FooterList from "../fixtures/Page Object/footerList.cy";
 
-Cypress.Commands.add('checkSinglePage', (name) =>{
-    HeaderList.topBarPages.contains(name).click();
+Cypress.Commands.add('checkSinglePage', (name, location, passage) =>{
+    if (location == "header") {
+        HeaderList.topBarPages.contains(name).click();
+    } else if (location == "footer") {
+        FooterList.footerBarPages.contains(name).click();
+    }  
+    
+    if (name == "Idealne na prezent") {
+        cy.title().should('contain', passage)
+    } else {
     cy.title().should('contain', name);
+    
+    }
 })
 
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
