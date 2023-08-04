@@ -3,6 +3,8 @@
         "open-cloud": "npx cypress run --record --key changekey",
         "open": "npx cypress open",
         "open-test": "npx cypress run --config --headed"
+    },
+    "devDependencies": {
+        "cypress": "^12.17.3"
     }
-
 }
